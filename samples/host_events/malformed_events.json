@@ -1,0 +1,8 @@
+[
+  {
+    "timestamp": "2026-01-15T13:00:00Z",
+    "host": "lab-host-03",
+    "event_type": "process_start",
+    "process_name": "lab-script-runner"
+  }
+]

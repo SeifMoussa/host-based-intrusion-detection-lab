@@ -1,0 +1,3 @@
+HIDS Lab clean configuration sample.
+Environment: local-lab
+Monitoring scope: samples-only

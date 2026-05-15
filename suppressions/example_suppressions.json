@@ -1,0 +1,11 @@
+{
+  "suppressions": [
+    {
+      "id": "SUP-001",
+      "rule_id": "HIDS-AUTH-001",
+      "source_contains": "lab-host-fp",
+      "evidence_contains": "user=lab_user; count=2",
+      "reason": "Expected synthetic training false positive for lab auth review"
+    }
+  ]
+}

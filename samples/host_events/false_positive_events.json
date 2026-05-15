@@ -1,0 +1,28 @@
+[
+  {
+    "timestamp": "2026-01-15T14:00:00Z",
+    "host": "lab-host-fp",
+    "event_type": "auth_failure",
+    "process_name": "lab-auth-simulator",
+    "command_line": "lab-auth-simulator --record-failed-login",
+    "user": "lab_user",
+    "parent_process": "lab-terminal",
+    "file_path": "samples/files/clean/notes.txt",
+    "action": "login_failed",
+    "synthetic_label": "suspicious",
+    "lab_marker": "synthetic-hids-lab"
+  },
+  {
+    "timestamp": "2026-01-15T14:01:00Z",
+    "host": "lab-host-fp",
+    "event_type": "auth_failure",
+    "process_name": "lab-auth-simulator",
+    "command_line": "lab-auth-simulator --record-failed-login",
+    "user": "lab_user",
+    "parent_process": "lab-terminal",
+    "file_path": "samples/files/clean/notes.txt",
+    "action": "login_failed",
+    "synthetic_label": "suspicious",
+    "lab_marker": "synthetic-hids-lab"
+  }
+]

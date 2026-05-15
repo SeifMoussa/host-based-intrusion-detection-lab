@@ -1,0 +1,28 @@
+{
+  "baseline_version": "1.0",
+  "generated_at": "2026-01-15T10:05:00Z",
+  "root_path": "samples/files/clean",
+  "files": [
+    {
+      "relative_path": "samples/files/clean/app_settings.json",
+      "sha256": "4cf02478aa7a6996890293560a3908a4b6082b0c5a2e1c0809fb2be4e3572e24",
+      "size_bytes": 77,
+      "modified_time_utc": "2026-01-15T10:00:00Z",
+      "status": "baseline"
+    },
+    {
+      "relative_path": "samples/files/clean/config.txt",
+      "sha256": "9c8ec4c7c24a7ffbc99d5b942ef208c125fcca2fce63044c9e7010a25835309e",
+      "size_bytes": 91,
+      "modified_time_utc": "2026-01-15T10:00:00Z",
+      "status": "baseline"
+    },
+    {
+      "relative_path": "samples/files/clean/notes.txt",
+      "sha256": "6000a12fa771d1a0531d218a89d012dc64714ca89b23d737e53dbb6d483d2044",
+      "size_bytes": 117,
+      "modified_time_utc": "2026-01-15T10:00:00Z",
+      "status": "baseline"
+    }
+  ]
+}

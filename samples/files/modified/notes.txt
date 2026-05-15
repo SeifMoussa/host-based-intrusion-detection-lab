@@ -1,0 +1,2 @@
+Modified lab notes for a synthetic host monitoring exercise.
+This file is harmless text for future comparison tests.

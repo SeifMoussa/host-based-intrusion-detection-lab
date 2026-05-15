@@ -1,0 +1,95 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[dev]"
+
+      - name: Lint
+        run: python -m ruff check .
+
+      - name: Format check
+        run: python -m ruff format --check .
+
+      - name: Test with coverage
+        run: >
+          python -m pytest
+          --cov=hids_lab
+          --cov-report=term-missing
+          --cov-report=xml
+          --cov-fail-under=90
+
+      - name: Upload coverage artifact
+        if: always() && hashFiles('coverage.xml') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-xml
+          path: coverage.xml
+
+  docs:
+    name: Documentation Safety Checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[dev]"
+
+      - name: Check docs
+        run: python scripts/check-docs.py
+
+  cli-smoke:
+    name: CLI Smoke Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[dev]"
+
+      - name: Run safe CLI smoke commands
+        run: |
+          python -m hids_lab --help
+          python -m hids_lab events validate --input samples/host_events/clean_events.json
+          python -m hids_lab events detect --input samples/host_events/suspicious_events.json --format json
+          python -m hids_lab events detect --input samples/host_events/false_positive_events.json --suppressions suppressions/example_suppressions.json --format json --include-suppressed
+          python -m hids_lab baseline create --root samples/files/clean --output baselines/ci_generated_baseline.json
+          python -m hids_lab fim compare --baseline baselines/ci_generated_baseline.json --root samples/files/clean
+          python -m hids_lab report events --input samples/host_events/suspicious_events.json --output reports/examples/ci_events_report.md --format markdown
+

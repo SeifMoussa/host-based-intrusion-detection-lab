@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "title": "Synthetic Combined HIDS Lab Report",
+    "generated_at": "2026-01-15T12:30:00Z",
+    "synthetic": true
+  },
+  "summary": {
+    "total_alerts": 11,
+    "event_detection_count": 8,
+    "fim_finding_count": 3
+  },
+  "severity_counts": {
+    "high": 1,
+    "medium": 2,
+    "low": 8
+  },
+  "alerts": [],
+  "fim_findings": [
+    {
+      "relative_path": "app_settings.json",
+      "status": "unchanged",
+      "explanation": "File matches the baseline hash and size."
+    },
+    {
+      "relative_path": "config.txt",
+      "status": "unchanged",
+      "explanation": "File matches the baseline hash and size."
+    },
+    {
+      "relative_path": "notes.txt",
+      "status": "unchanged",
+      "explanation": "File matches the baseline hash and size."
+    }
+  ],
+  "event_detections": [
+    {
+      "rule_id": "HIDS-FILE-001",
+      "severity": "high",
+      "evidence": "file_path=samples/files/modified/app_settings.json"
+    },
+    {
+      "rule_id": "HIDS-PROC-001",
+      "severity": "medium",
+      "evidence": "command_line=lab-script-runner --simulate-unusual-file-review"
+    },
+    {
+      "rule_id": "HIDS-AUTH-001",
+      "severity": "medium",
+      "evidence": "user=lab_user; count=2"
+    }
+  ],
+  "inputs": {
+    "events": "samples/host_events/suspicious_events.json",
+    "baseline": "baselines/example_baseline.json",
+    "root": "samples/files/clean"
+  },
+  "safety_disclaimer": "Defensive lab-only report generated from synthetic local sample data. This project does not collect live endpoint telemetry, monitor real system paths, perform response actions, or claim production EDR/SIEM capability."
+}

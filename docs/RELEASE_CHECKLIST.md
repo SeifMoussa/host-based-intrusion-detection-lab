@@ -1,0 +1,28 @@
+# Release Checklist
+
+- [x] Code complete through Phase 8.
+- [x] Release preparation materials drafted in `RELEASE.md`.
+- [x] Repository metadata prepared.
+- [x] Publishing commands prepared but not executed.
+- [x] v0.1.0 release notes drafted but not released.
+- [x] Confirm safety scope.
+- [x] Confirm no real logs, credentials, indicators, or third-party data in local samples/docs.
+- [x] Run pytest locally: 97 passed.
+- [x] Run coverage locally: 95.59%.
+- [x] Confirm coverage gate: 90%.
+- [x] Run ruff lint locally: passed.
+- [x] Run ruff format check locally: passed.
+- [x] Run `python scripts/check-docs.py` locally: passed.
+- [x] Run CLI smoke locally: passed.
+- [x] Confirm CI/CodeQL configured but not yet GitHub-verified before publishing.
+- [x] Confirm no background monitoring.
+- [x] Confirm no real OS collection.
+- [x] Confirm no real system path monitoring.
+- [x] Confirm no malware, real logs, real credentials, or real indicators.
+- [x] Confirm no fake screenshots.
+- [ ] After publishing, confirm GitHub Actions CI completes on GitHub.
+- [ ] After publishing, confirm CodeQL completes on GitHub.
+- [ ] Confirm badges render after first push.
+- [ ] Confirm repository About description and topics.
+- [x] Review documentation for final QA.
+- [ ] Prepare release notes.

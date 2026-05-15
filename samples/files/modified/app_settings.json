@@ -1,0 +1,6 @@
+{
+  "application": "hids-lab-demo",
+  "mode": "modified",
+  "synthetic": true,
+  "change_note": "safe lab-only example"
+}

@@ -1,0 +1,5 @@
+{
+  "application": "hids-lab-demo",
+  "mode": "clean",
+  "synthetic": true
+}

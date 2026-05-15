@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": "2026-01-15T11:00:00Z",
+    "host": "lab-host-02",
+    "event_type": "process_start",
+    "process_name": "lab-script-runner",
+    "command_line": "lab-script-runner --simulate-unusual-file-review",
+    "user": "service_user",
+    "parent_process": "lab-scheduler",
+    "file_path": "samples/files/modified/config.txt",
+    "action": "review",
+    "synthetic_label": "suspicious",
+    "lab_marker": "synthetic-hids-lab"
+  },
+  {
+    "timestamp": "2026-01-15T11:04:00Z",
+    "host": "lab-host-02",
+    "event_type": "file_write",
+    "process_name": "example-admin-tool",
+    "command_line": "example-admin-tool --simulate-config-change",
+    "user": "lab_user",
+    "parent_process": "lab-terminal",
+    "file_path": "samples/files/modified/app_settings.json",
+    "action": "write",
+    "synthetic_label": "suspicious",
+    "lab_marker": "synthetic-hids-lab"
+  },
+  {
+    "timestamp": "2026-01-15T11:06:00Z",
+    "host": "lab-host-02",
+    "event_type": "auth_failure",
+    "process_name": "lab-auth-simulator",
+    "command_line": "lab-auth-simulator --record-failed-login",
+    "user": "lab_user",
+    "parent_process": "lab-terminal",
+    "file_path": "samples/files/clean/notes.txt",
+    "action": "login_failed",
+    "synthetic_label": "suspicious",
+    "lab_marker": "synthetic-hids-lab"
+  },
+  {
+    "timestamp": "2026-01-15T11:07:00Z",
+    "host": "lab-host-02",
+    "event_type": "auth_failure",
+    "process_name": "lab-auth-simulator",
+    "command_line": "lab-auth-simulator --record-failed-login",
+    "user": "lab_user",
+    "parent_process": "lab-terminal",
+    "file_path": "samples/files/clean/notes.txt",
+    "action": "login_failed",
+    "synthetic_label": "suspicious",
+    "lab_marker": "synthetic-hids-lab"
+  }
+]

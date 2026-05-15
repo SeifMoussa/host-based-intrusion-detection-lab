@@ -1,0 +1,4 @@
+HIDS Lab modified configuration sample.
+Environment: local-lab
+Monitoring scope: samples-only
+Change note: synthetic setting adjusted for baseline comparison practice.

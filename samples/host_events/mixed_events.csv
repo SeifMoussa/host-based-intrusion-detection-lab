@@ -1,0 +1,5 @@
+timestamp,host,event_type,process_name,command_line,user,parent_process,file_path,action,synthetic_label,lab_marker
+2026-01-15T12:00:00Z,lab-host-01,process_start,example-admin-tool,example-admin-tool --show-status,analyst_user,lab-terminal,samples/files/clean/config.txt,read,clean,synthetic-hids-lab
+2026-01-15T12:03:00Z,lab-host-01,file_create,lab-script-runner,lab-script-runner --simulate-new-note,lab_user,lab-terminal,samples/files/new/notes.txt,create,suspicious,synthetic-hids-lab
+2026-01-15T12:05:00Z,lab-host-01,auth_failure,lab-auth-simulator,lab-auth-simulator --record-failed-login,lab_user,lab-terminal,samples/files/clean/notes.txt,login_failed,suspicious,synthetic-hids-lab
+2026-01-15T12:06:00Z,lab-host-01,auth_failure,lab-auth-simulator,lab-auth-simulator --record-failed-login,lab_user,lab-terminal,samples/files/clean/notes.txt,login_failed,suspicious,synthetic-hids-lab
