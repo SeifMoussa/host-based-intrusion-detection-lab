@@ -40,7 +40,10 @@ def test_codeql_workflow_analyzes_python_with_security_quality_queries() -> None
     assert "queries: security-and-quality" in workflow
     assert "schedule:" in workflow
     assert "workflow_dispatch:" in workflow
-    assert "github/codeql-action/analyze@v3" in workflow
+    assert (
+        "github/codeql-action/analyze@v3" in workflow
+        or "github/codeql-action/analyze@v4" in workflow
+    )
 
 
 def test_dependabot_updates_pip_and_actions_weekly_only() -> None:
