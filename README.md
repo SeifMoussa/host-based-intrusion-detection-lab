@@ -23,6 +23,10 @@ The lab demonstrates a safe host-based intrusion detection workflow using:
 
 The project is intentionally deterministic and public GitHub-friendly.
 
+## Why This Lab Is Different From My Other Security Labs
+
+This lab focuses on what changed on a host and which local events explain it. The cloud/IaC lab reviews configuration before deployment, the packet lab inspects network traffic, the YARA lab matches content patterns, and the alert-triage lab organizes existing alerts. Here, a JSON file-integrity baseline is compared with current sample files, synthetic JSON/CSV host events are evaluated by explicit rules, and both result types can be combined into one report. Suppressions retain the evidence and reason instead of silently dropping an expected false positive.
+
 ## Target Job Relevance
 
 This project maps to:
@@ -213,11 +217,36 @@ scripts/              Documentation safety checker
 
 - CI and CodeQL have not yet run on GitHub.
 - No release or tag has been created.
-- No live endpoint telemetry is collected by design.
-- No background monitoring is implemented by design.
-- No real system paths are scanned by design.
+- All host events and files are synthetic lab fixtures; the project does not ingest production endpoint data.
+- No agent, background monitoring, or live endpoint telemetry collection is implemented.
+- No real system paths are scanned, and the tool is not deployed across production endpoints.
+- OS coverage is intentionally limited: the event format is the lab's normalized JSON/CSV schema, not native Windows Event Log, Sysmon, Linux auditd, or journald ingestion.
+- There is no EDR integration, central policy distribution, remote response, or fleet health monitoring.
 - No destructive remediation is performed by design.
 - SQLite baseline storage is optional future work; JSON is the primary format.
+
+## What I Would Improve Next
+
+I would add adapters that normalize exported Sysmon and auditd events into the existing event model, with fixture tests that keep platform parsing separate from detection logic. For file integrity monitoring, I would add signed baseline metadata and incremental comparisons before considering a long-running agent. An EDR or SIEM integration would remain an explicit outbound reporting adapter; it would not turn this lab into an autonomous response tool.
+
+## How to Verify It Works
+
+Install the development extras, run the repository quality gates, then exercise event detection and file-integrity comparison against the synthetic fixtures:
+
+```powershell
+python -m pip install -e ".[dev]"
+python -m ruff check .
+python -m ruff format --check .
+python -m pytest
+python -m pytest --cov=hids_lab --cov-report=term-missing --cov-fail-under=90
+python scripts/check-docs.py
+python -m hids_lab events validate --input samples/host_events/clean_events.json
+python -m hids_lab events detect --input samples/host_events/suspicious_events.json --format json
+python -m hids_lab baseline create --root samples/files/clean --output baselines/generated_baseline.json
+python -m hids_lab fim compare --baseline baselines/generated_baseline.json --root samples/files/clean
+```
+
+These commands verify the deterministic lab workflow. They do not validate deployment on a production endpoint or integration with a real EDR fleet.
 
 ## License
 
