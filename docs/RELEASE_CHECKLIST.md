@@ -1,6 +1,6 @@
 # Release Checklist
 
-- [x] Code complete through Phase 8.
+- [x] Code complete for the current scope.
 - [x] Release preparation materials drafted in `RELEASE.md`.
 - [x] Repository metadata prepared.
 - [x] Publishing commands prepared but not executed.

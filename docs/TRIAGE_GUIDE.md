@@ -1,6 +1,6 @@
 # Triage Guide
 
-Phase 4 adds normalized alerts from synthetic host-event detections.
+The detection workflow produces normalized alerts from synthetic host events.
 
 ## Severity
 
@@ -31,7 +31,7 @@ Recommended actions are triage guidance only. The project does not perform live 
 
 ## Report Interpretation
 
-Phase 5 reports combine host-event detection alerts and file integrity findings into one analyst-friendly view.
+Reports combine host-event detection alerts and file integrity findings into one analyst-friendly view.
 
 Report sections:
 
@@ -46,7 +46,7 @@ Use high-severity findings first during triage practice, then review medium and 
 
 ## False-Positive And Suppression Workflow
 
-Phase 6 adds explicit suppressions for expected synthetic false positives.
+The workflow supports explicit suppressions for expected synthetic false positives.
 
 Workflow:
 

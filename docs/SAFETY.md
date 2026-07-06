@@ -4,14 +4,14 @@ This project is defensive and educational only.
 
 The lab must only scan explicit local sample paths inside this repository and must only process synthetic JSON/CSV host-event records.
 
-Phase 2 sample constraints:
+Sample constraints:
 
 - Host-event records must be fake, harmless, and clearly marked with `lab_marker`.
 - Sample paths must stay under `samples/`.
 - Sample files must be harmless UTF-8 text files.
 - The example baseline must reference only repo-controlled files under `samples/files/`.
-- JSON baseline data is static in Phase 2; real baseline generation belongs to Phase 3.
-- Phase 6 suppressions are explicit, synthetic-only, and preserve evidence plus reason metadata.
+- The example JSON baseline is static; baseline generation is implemented separately through the baseline creation workflow.
+- Suppressions are explicit, synthetic-only, and preserve evidence plus reason metadata.
 - Report examples must include the defensive lab-only disclaimer.
 
 Background monitoring, live OS process collection, and real system path monitoring are intentionally excluded to keep the lab deterministic and safe for public review.

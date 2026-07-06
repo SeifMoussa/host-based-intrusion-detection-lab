@@ -8,7 +8,7 @@ python -m ruff check .
 python -m ruff format --check .
 ```
 
-## Phase 7 CI Expectations
+## CI Expectations
 
 CI/CodeQL configured but not yet GitHub-verified.
 
@@ -23,9 +23,9 @@ python scripts/check-docs.py
 
 The configured GitHub Actions CI has `tests`, `docs`, and `cli-smoke` jobs. It uses Python 3.12 and enforces the 90% coverage gate.
 
-## Phase 3 FIM Checks
+## FIM Checks
 
-Phase 3 tests cover:
+FIM tests cover:
 
 - SHA-256 calculation.
 - Baseline generation from `samples/files/clean`.
@@ -39,9 +39,9 @@ Phase 3 tests cover:
 - CLI FIM comparison.
 - CLI invalid path handling.
 
-## Phase 4 Detection Checks
+## Detection Checks
 
-Phase 4 tests cover:
+Detection tests cover:
 
 - Default rule loading.
 - Unique rule IDs.
@@ -65,9 +65,9 @@ $env:PYTHONPATH='src'; python -m hids_lab events detect --input samples/host_eve
 $env:PYTHONPATH='src'; python -m hids_lab events detect --input samples/host_events/mixed_events.csv --format text
 ```
 
-## Phase 5 Report Checks
+## Report Checks
 
-Phase 5 tests cover:
+Report tests cover:
 
 - Markdown event report generation.
 - JSON event report generation.
@@ -88,9 +88,9 @@ $env:PYTHONPATH='src'; python -m hids_lab report fim --baseline baselines/genera
 $env:PYTHONPATH='src'; python -m hids_lab report combined --events samples/host_events/suspicious_events.json --baseline baselines/generated_baseline.json --root samples/files/clean --output reports/combined_report.md --format markdown
 ```
 
-## Phase 6 Quality And Suppression Checks
+## Quality And Suppression Checks
 
-Phase 6 tests cover:
+Quality and suppression tests cover:
 
 - Explicit suppression loading.
 - Suppressed alert hiding by default.
